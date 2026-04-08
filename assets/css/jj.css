@@ -237,3 +237,113 @@ footer.huda:hover #popup {
     grid-template-columns: repeat(4, 1fr);
     gap: 15px;
 }
+
+.insta-card {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+/* Header */
+.insta-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Left */
+.profile-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.profile-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+/* Username */
+.username {
+    margin: 0;
+    font-size: 18px;
+}
+
+.username a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+}
+
+/* Stats */
+.stats {
+    margin-top: 4px;
+    font-size: 14px;
+    color: #6c757d;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Follow Button */
+.follow-btn {
+    background: #0d6efd;
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    text-decoration: none;
+    width: auto;
+}
+
+.follow-btn:hover {
+    background: #0b5ed7;
+}
+
+/* Posts Grid */
+.insta-posts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.insta-posts a {
+    display: block;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.insta-posts img {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    transition: 0.3s;
+}
+
+/* Hover */
+.insta-posts a:hover img {
+    transform: scale(1.08);
+}
+
+/* 🔥 MOBILE FIX */
+@media (max-width: 768px) {
+
+    .insta-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .follow-btn {
+        padding: 5px 14px;
+        font-size: 13px;
+    }
+
+    .insta-posts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
