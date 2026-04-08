@@ -141,11 +141,99 @@ footer.huda:hover #popup {
     position: absolute;
     right: 20px;
 
-    top: 50%;                 /* 🔥 center vertically */
+    top: 55%;                 /* 🔥 center vertically */
     transform: translateY(-50%);
 
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin-bottom: 20px;
+    width: 90px;
+    height: 90px;
+}
+
+.insta-card {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: black 0px 4px 12px -1px ;
+}
+
+/* Header */
+.insta-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Left */
+.profile-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.profile-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+/* Text */
+.username {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.stats {
+    margin: 4px 0 0;
+    font-size: 14px;
+    color: #6c757d;
+    white-space: nowrap;   /* 🔥 MAIN FIX */
+}
+
+/* Button */
+.follow-btn {
+    background: #0d6efd;
+    color: white;
+    border: none;
+    padding: 6px 16px;   /* छोटा किया */
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+    width: auto;         /* IMPORTANT */
+    min-width: 90px;     /* optional */
+    text-align: center;
+}
+
+/* Grid */
+.insta-posts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.insta-posts img {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.insta-posts img:hover {
+    transform: scale(1.05);
+}
+.insta-info {
+    min-width: 200px;
+}
+
+.insta-embed {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
 }
