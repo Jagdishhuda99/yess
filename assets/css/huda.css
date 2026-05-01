@@ -421,7 +421,7 @@ nav ul li a:hover::after {
 }
 
 .card{
-    background:linear-gradient(135deg,#ffffff,#f0f6ff);
+    background:linear-gradient(135deg,#fff9c4,#ffffff,#bbdefb);
     padding:25px;
     border-radius:15px;
     box-shadow:0 8px 25px rgba(0,80,200,0.15);
@@ -429,12 +429,8 @@ nav ul li a:hover::after {
 }
 
 .card:hover {
-    transform: translateY(-10px);
-    background: linear-gradient(135deg, 
-        #fff9c4 0%,     /* yellow */
-        #ffffff 40%, 
-        #bbdefb 100%    /* light blue */
-    );
+    transform: scale(1.05);
+    background:wheat;
 }
 .card:hover h3 {
     color: #333;
@@ -522,7 +518,7 @@ nav ul li a:hover::after {
 
 /* CARD */
 .contact-card{
-    background:linear-gradient(135deg,#ffffff,#f1e5e5);
+    background:linear-gradient(135deg,#fff9c4,#ffffff,#bbdefb);
     padding:25px;
     border-radius:15px;
     box-shadow:0 8px 25px rgb(104, 50, 69);
@@ -531,7 +527,7 @@ nav ul li a:hover::after {
 
 .contact-card:hover{
     transform:translateY(-10px);
-    background:linear-gradient(135deg,#fff9c4,#ffffff,#bbdefb);
+    background: linear-gradient(135deg, #fff9c4, #e3f2fd, #90caf9);
 }
 
 /* ICON */
