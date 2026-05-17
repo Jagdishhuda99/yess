@@ -593,8 +593,8 @@ footer.huda:hover #popup {
 
 /* Popup box styling */
 .popup-content {
-    width: 95%;
-    height: 600px;
+    width: 370px;
+    height: auto;
     padding: 20px;
     border-radius: 18px;
     /* Blur Glass effect */
@@ -610,15 +610,15 @@ footer.huda:hover #popup {
 }
 
 /* Slide-up animation */
-@keyf rames slideUp {
+@keyframes slideUp {
     from { transform: translateY(40px); opacity: 0; }
     to   { transform: translateY(0); opacity: 1; }
 }
 
 /* Profile Image */
 .profile-img {
-    width: 250px;
-    height: 250px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
     border: 3px solid #d47a1f;
     margin-bottom: 10px;
@@ -627,7 +627,7 @@ footer.huda:hover #popup {
 /* Name */
 .name-heading {
     color:  rgb(0, 102, 204);
-    font-size: 80px;
+    font-size: 20px;
     font-weight: bold;
 }
 
@@ -644,5 +644,5 @@ footer.huda:hover #popup {
     font-weight: 600;
 }
 .popup-content p {
-    font-size: 50px;
+    font-size: 20px;
 }

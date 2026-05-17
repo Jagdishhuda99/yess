@@ -1,0 +1,87 @@
+
+/* Footer */
+footer.huda {
+    text-align: center;
+    padding: 8px;
+    background: #2b1b0f;
+    font-size: 1.5rem; 
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    height: 40px;
+}
+
+/* Footer Hover */
+footer.huda:hover {
+    background: #3b2617;
+}
+footer.huda .n11 {
+    color: rgb(0, 102, 204);
+    font-weight: 600;
+}
+/* Popup container */
+footer.huda .popup {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    z-index: 999;
+    transform: translateX(-50%);
+    display: none;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Footer hover → popup show */
+footer.huda:hover .popup {
+    display: flex;
+}
+
+/* Popup box styling */
+footer.huda .popup-content {
+    width: 370px;
+    height: auto;
+    padding: 20px;
+    border-radius: 18px;
+    /* Blur Glass effect */
+    background: rgba(255, 255, 255, 0.25);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.9);
+    text-align: center;
+    justify-content: center;
+    animation: slideUp 0.35s ease;
+    line-height: -1.5;
+}
+
+/* Slide-up animation */
+@keyframes slideUp {
+    from { transform: translateY(40px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+}
+
+/* Profile Image */
+
+
+/* Name */
+footer.huda .name-heading {
+    color:  rgb(0, 102, 204);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Contact Info */
+footer.huda .info strong,p {
+    color: black;
+    text-decoration: none;
+    font-weight: 600;
+    line-height: normal;
+}
+footer.huda .info a {
+    color: #b94000;
+    text-decoration: none;
+    font-weight: 600;
+}
+footer.huda .popup-content p {
+    font-size: 20px;
+}

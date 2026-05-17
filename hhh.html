@@ -1,0 +1,1012 @@
+<!doctype html>
+<html lang="hi" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yes BMRMER</title>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/hudahhme.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif']
+                    },
+                    colors: {
+                        navy: '#0a0e27',
+                        deepnavy: '#060919',
+                        cyan: '#00e5ff',
+                        cyandark: '#00b8d4',
+                        neongreen: '#39ff14',
+                        surface: '#111738'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .glow-cyan {
+            box-shadow: 0 0 30px rgba(0,229,255,0.15), 0 0 60px rgba(0,229,255,0.05);
+        }
+
+        .glow-green {
+            box-shadow: 0 0 25px rgba(57,255,20,0.2), 0 0 50px rgba(57,255,20,0.08);
+        }
+
+        .glow-text {
+            text-shadow: 0 0 40px rgba(0,229,255,0.3);
+        }
+
+        .gradient-border {
+            position: relative;
+            border-radius: 16px;
+        }
+
+            .gradient-border::before {
+                content: '';
+                position: absolute;
+                inset: -2px;
+                border-radius: 18px;
+                background: linear-gradient(135deg, #00e5ff, #39ff14, #00e5ff);
+                z-index: -1;
+                opacity: 0.6;
+            }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(57,255,20,0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(57,255,20,0.5), 0 0 60px rgba(57,255,20,0.2);
+            }
+        }
+
+        @keyframes pulse-timer {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.85;
+                transform: scale(1.02);
+            }
+        }
+
+        .anim-up-1 {
+            animation: fadeInUp 0.7s ease-out 0.1s both;
+        }
+
+        .anim-up-2 {
+            animation: fadeInUp 0.7s ease-out 0.25s both;
+        }
+
+        .anim-up-3 {
+            animation: fadeInUp 0.7s ease-out 0.4s both;
+        }
+
+        .anim-up-4 {
+            animation: fadeInUp 0.7s ease-out 0.55s both;
+        }
+
+        .anim-right {
+            animation: fadeInRight 0.8s ease-out 0.3s both;
+        }
+
+        .anim-up-5 {
+            animation: fadeInUp 0.7s ease-out 0.15s both;
+        }
+
+        .anim-up-6 {
+            animation: fadeInUp 0.7s ease-out 0.3s both;
+        }
+
+        .anim-up-7 {
+            animation: fadeInUp 0.7s ease-out 0.45s both;
+        }
+
+        .pulse-btn {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        .float-anim {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .grid-bg {
+            background-image: linear-gradient(rgba(0,229,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,229,255,0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        .form-input {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(0,229,255,0.2);
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+            .form-input:focus {
+                border-color: #00e5ff;
+                box-shadow: 0 0 15px rgba(0,229,255,0.15);
+                outline: none;
+                background: rgba(255,255,255,0.08);
+            }
+
+            .form-input::placeholder {
+                color: rgba(255,255,255,0.35);
+            }
+
+        select.form-input option {
+            background: #111738;
+            color: #fff;
+        }
+
+        .success-toast {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-100px);
+            background: linear-gradient(135deg, #111738, #1a2350);
+            border: 1px solid rgba(57,255,20,0.4);
+            color: #39ff14;
+            padding: 14px 28px;
+            border-radius: 12px;
+            z-index: 1000;
+            transition: transform 0.4s ease;
+            font-weight: 600;
+            box-shadow: 0 0 30px rgba(57,255,20,0.15);
+        }
+
+            .success-toast.show {
+                transform: translateX(-50%) translateY(0);
+            }
+
+        .trust-card {
+            background: linear-gradient(135deg, rgba(17,23,56,0.8), rgba(10,14,39,0.9));
+            border: 1px solid rgba(0,229,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+            .trust-card:hover {
+                border-color: rgba(0,229,255,0.3);
+                transform: translateY(-4px);
+                box-shadow: 0 10px 30px rgba(0,229,255,0.1);
+            }
+
+        .benefit-card {
+            background: linear-gradient(135deg, rgba(17,23,56,0.6), rgba(10,14,39,0.8));
+            border: 1px solid rgba(57,255,20,0.08);
+            transition: all 0.3s ease;
+        }
+
+            .benefit-card:hover {
+                border-color: rgba(57,255,20,0.25);
+                transform: translateY(-4px);
+                box-shadow: 0 10px 30px rgba(57,255,20,0.08);
+            }
+    </style>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body class="h-full bg-zinc-900 text-white overflow-auto">
+    <!-- MAIN WRAPPER -->
+    <div id="app-wrapper" class="w-full h-full grid-bg" style="min-height: 100%;">
+        <!-- NAV -->
+        <header class="w-full border-b border-cyan/10">
+            <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan to-neongreen flex items-center justify-center">
+                        <i data-lucide="shield-check" class="w-6 h-6 text-deepnavy"></i> 
+                    </div><span id="nav-brand" class="text-xl font-bold tracking-tight">
+                        Yes Insurance
+                    </span>
+                </div>
+                <div class="hidden sm:flex items-center gap-2 text-sm text-cyan/70">
+                    <i data-lucide="lock" class="w-4 h-4"></i>  <span>100% सुरक्षित</span>
+                </div>
+            </nav>
+        </header><!-- HERO SECTION -->
+        <main class="w-full">
+            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 lg:py-20">
+                <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+                    <!-- LEFT CONTENT -->
+                    <div class="flex-1 text-center lg:text-left">
+                        <div class="anim-up-1 inline-flex items-center gap-2 bg-cyan/10 border border-cyan/20 rounded-full px-4 py-1.5 text-cyan text-sm font-medium mb-6">
+                            <i data-lucide="trending-up" class="w-4 h-4"></i>  Trusted by 10,000+ customers
+                        </div>
+                        <h1 id="hero-headline" class="anim-up-2 text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight glow-text mb-5">🚗 सस्ता और भरोसेमंद मोटर इंश्योरेंस</h1>
+                        <p id="hero-subheadline" class="anim-up-3 text-lg sm:text-xl text-cyan/80 font-medium mb-3">First Party और Third Party Insurance तुरंत पाएं</p>
+                        <p class="anim-up-3 text-base text-white/60 mb-5">अभी फ्री कोट लें और अपनी गाड़ी को सुरक्षित करें</p>
+                        <div id="hero-urgency" class="anim-up-4 inline-flex items-center gap-2 bg-neongreen/10 border border-neongreen/20 rounded-lg px-5 py-2.5 text-neongreen font-semibold text-sm float-anim">
+                            ⚡ आज ही ऑफर का लाभ उठाएं
+                        </div><!-- Stats row -->
+                        <div class="anim-up-4 flex flex-wrap justify-center lg:justify-start gap-6 mt-8">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-cyan">
+                                    10K+
+                                </div>
+                                <div class="text-xs text-white/40 mt-0.5">
+                                    खुश ग्राहक
+                                </div>
+                            </div>
+                            <div class="w-px bg-cyan/15 hidden sm:block"></div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-neongreen">
+                                    ₹2K
+                                </div>
+                                <div class="text-xs text-white/40 mt-0.5">
+                                    से शुरू
+                                </div>
+                            </div>
+                            <div class="w-px bg-cyan/15 hidden sm:block"></div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-cyan">
+                                    24/7
+                                </div>
+                                <div class="text-xs text-white/40 mt-0.5">
+                                    क्लेम सहायता
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- RIGHT FORM -->
+                    <!-- <div class="w-full lg:w-[420px] flex-shrink-0 anim-right">
+                        <div class="gradient-border">
+                            <div class="bg-navy rounded-2xl p-6 sm:p-8 glow-cyan">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <i data-lucide="file-text" class="w-5 h-5 text-cyan"></i> 
+                                    <h2 id="form-title" class="text-xl font-bold text-white">फ्री कोट पाएं</h2>
+                                </div>
+                                <p class="text-white/40 text-sm mb-6">कोई शुल्क नहीं, कोई बाध्यता नहीं</p>
+                                <form id="leadForm"
+                                      action="/LeadSubmit.aspx"
+                                      method="POST"
+                                      onsubmit="return submitLeadForm();"
+                                      novalidate>
+
+                                    <div class="space-y-4">
+                                        <div>
+                                            <label for="field-name" class="block text-sm font-medium text-white/70 mb-1.5">नाम</label>
+                                            <input type="text"
+                                                   id="field-name"
+                                                   name="name"
+                                                   placeholder="अपना नाम लिखें"
+                                                   required
+                                                   class="form-input w-full px-4 py-3 rounded-xl text-sm font-medium">
+                                        </div>
+
+                                        <div>
+                                            <label for="field-phone" class="block text-sm font-medium text-white/70 mb-1.5">मोबाइल नंबर</label>
+                                            <input type="tel"
+                                                   id="field-phone"
+                                                   name="mobile"
+                                                   placeholder="10 अंकों का मोबाइल नंबर"
+                                                   required
+                                                   pattern="[0-9]{10}"
+                                                   maxlength="10"
+                                                   class="form-input w-full px-4 py-3 rounded-xl text-sm font-medium">
+                                        </div>
+
+                                        <div>
+                                            <label for="field-city" class="block text-sm font-medium text-white/70 mb-1.5">शहर</label>
+                                            <input type="text"
+                                                   id="field-city"
+                                                   name="city"
+                                                   placeholder="अपना शहर लिखें"
+                                                   required
+                                                   class="form-input w-full px-4 py-3 rounded-xl text-sm font-medium">
+                                        </div>
+
+                                        <div>
+                                            <label for="field-type" class="block text-sm font-medium text-white/70 mb-1.5">Insurance Type</label>
+                                            <select id="field-type"
+                                                    name="insurance_type"
+                                                    required
+                                                    class="form-input w-full px-4 py-3 rounded-xl text-sm font-medium appearance-none cursor-pointer">
+                                                <option value="" disabled selected>चुनें</option>
+                                                <option value="Car Insurance">Car Insurance</option>
+                                                <option value="Bike Insurance">Bike Insurance</option>
+                                                <option value="3 Wheeler Insurance">3 Wheeler Insurance</option>
+                                                <option value="Commercial Vehicle Insurance">Commercial Vehicle Insurance</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!-- Hidden Tracking Fields -->
+                                    <input type="hidden" id="hdnAgentID" name="AgentID">
+                                    <input type="hidden" id="hdnCampaignID" name="CampaignID">
+                                    <input type="hidden" id="hdnUTMSource" name="UTMSource">
+                                    <input type="hidden" id="hdnUTMCampaign" name="UTMCampaign">
+                                    <input type="hidden" id="hdnGCLID" name="GCLID">
+                                    <input type="hidden" id="hdnFBCLID" name="FBCLID">
+                                    <input type="hidden" id="hdnLandingPage" name="LandingPage">
+                                    <input type="hidden" id="hdnLeadScore" name="LeadScore">
+                                    <input type="hidden" id="hdnIntentLevel" name="IntentLevel">
+                                    <input type="hidden" id="hdnTimeSpent" name="TimeSpent">
+                                    <input type="hidden" id="hdnScrollDepth" name="ScrollDepth">
+                                    <input type="hidden" id="hdnPixel" name="pixel">
+                                    <div id="form-error" class="hidden mt-3 text-red-400 text-sm">
+                                        <span id="form-error-text"></span>
+                                    </div>
+                                    <!-- <button type="submit"
+                                            id="submit-btn"
+                                            class="w-full mt-6 bg-gradient-to-r from-neongreen to-emerald-500 text-deepnavy font-bold py-3.5 rounded-xl text-base pulse-btn">
+                                        अभी फ्री कोट पाएं →
+                                    </button> -->
+                                </form>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </section><!-- VEHICLE COVERAGE SECTION -->
+            <section class="w-full py-14 md:py-20  bg-zinc-50" style="background: linear-gradient(180deg, rgba(108, 14, 14, 0) 0%, rgba(51, 213, 22, 0.02) 50%, rgba(10,14,39,0) 100%);">
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-10">
+                        <h2 id="vehicles-title" class="text-2xl sm:text-3xl font-bold">हम किन-किन गाड़ियों का इंश्योरेंस करते हैं?</h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                        <div class="benefit-card rounded-2xl p-6 flex items-start gap-4 anim-up-5">
+                            <div class="text-4xl flex-shrink-0">
+                                🚗
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg mb-1">Car Insurance</h3>
+                                <p class="text-white/40 text-sm">नई और पुरानी गाड़ी दोनों के लिए</p>
+                            </div>
+                        </div>
+                        <div class="benefit-card rounded-2xl p-6 flex items-start gap-4 anim-up-6">
+                            <div class="text-4xl flex-shrink-0">
+                                🏍️
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg mb-1">Bike Insurance</h3>
+                                <p class="text-white/40 text-sm">छोटी बाइक से बड़ी बाइक तक</p>
+                            </div>
+                        </div>
+                        <div class="benefit-card rounded-2xl p-6 flex items-start gap-4 anim-up-7">
+                            <div class="text-4xl flex-shrink-0">
+                                🛺
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg mb-1">3 Wheeler Insurance</h3>
+                                <p class="text-white/40 text-sm">Auto, रिक्शा और अन्य सभी 3 wheeler</p>
+                            </div>
+                        </div>
+                        <div class="benefit-card rounded-2xl p-6 flex items-start gap-4 anim-up-5">
+                            <div class="text-4xl flex-shrink-0">
+                                🚚
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg mb-1">Commercial Vehicle</h3>
+                                <p class="text-white/40 text-sm">ट्रक, पिकअप, लोडिंग और सभी व्यावसायिक गाड़ी</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-r from-neongreen/10 to-cyan/10 border border-neongreen/30 rounded-2xl p-6 text-center">
+                        <p id="vehicles-tagline" class="text-lg font-semibold text-white">🎯 हर प्रकार की गाड़ी के लिए सही पॉलिसी, सही कीमत पर</p>
+                    </div>
+                </div>
+            </section><!-- RISK SECTION -->
+            <section class="w-full py-14 md:py-20">
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="bg-gradient-to-r from-black to-zinc-900 border border-zinc-700 rounded-3xl p-8 sm:p-12">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="text-4xl">
+                                ⚠️
+                            </div>
+                            <h2 id="risk-title" class="text-2xl sm:text-3xl font-bold text-white">अगर आपकी गाड़ी का इंश्योरेंस नहीं है तो क्या होगा?</h2>
+                        </div>
+                        <div class="space-y-3 mb-8 max-w-3xl">
+                            <div class="flex items-start gap-3">
+                                <div class="text-red-400 font-bold text-lg flex-shrink-0 mt-0.5">
+                                    ✕
+                                </div>
+                                <p class="text-white/80 text-base">₹2000 से ₹4000 तक का भारी चालान लग सकता है</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="text-red-400 font-bold text-lg flex-shrink-0 mt-0.5">
+                                    ✕
+                                </div>
+                                <p class="text-white/80 text-base">एक्सीडेंट में पूरा खर्च आपको खुद देना पड़ेगा</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="text-red-400 font-bold text-lg flex-shrink-0 mt-0.5">
+                                    ✕
+                                </div>
+                                <p class="text-white/80 text-base">Third Party damage का कानूनी केस हो सकता है</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="text-red-400 font-bold text-lg flex-shrink-0 mt-0.5">
+                                    ✕
+                                </div>
+                                <p class="text-white/80 text-base">गाड़ी जब्त भी हो सकती है</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="text-red-400 font-bold text-lg flex-shrink-0 mt-0.5">
+                                    ✕
+                                </div>
+                                <p class="text-white/80 text-base">Renewal late होने पर No Claim Bonus (NCB) खत्म हो सकता है</p>
+                            </div>
+                        </div>
+                        <div class="bg-red-500/20 border border-red-500/40 rounded-xl p-4">
+                            <p id="risk-emotional" class="text-lg font-semibold text-red-200">🔴 एक छोटी सी गलती आपको लाखों का नुकसान करा सकती है</p>
+                        </div>
+                    </div>
+                </div>
+            </section><!-- ADVISOR SECTION -->
+           
+            </section><!-- WHY CHOOSE US SECTION -->
+            <section class="w-full py-14 md:py-20" style="background: linear-gradient(180deg, rgba(10,14,39,0) 0%, rgba(57,255,20,0.02) 50%, rgba(10,14,39,0) 100%);">
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-10">
+                        <h2 id="benefits-title" class="text-2xl sm:text-3xl font-bold">हमसे ही इंश्योरेंस क्यों लें?</h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+                        <div class="benefit-card rounded-2xl p-6 flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-neongreen/20 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="check" class="w-6 h-6 text-neongreen"></i> 
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg mb-1">सबसे सस्ती पॉलिसी</h3>
+                                <p class="text-white/40 text-sm">तुलना करके देते हैं सभी कंपनियों की सबसे कम दर</p>
+                            </div>
+                        </div>
+                        <div class="benefit-card rounded-2xl p-6 flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-cyan/20 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="heart-handshake" class="w-6 h-6 text-cyan"></i> 
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg mb-1">100% क्लेम सपोर्ट</h3>
+                                <p class="text-white/40 text-sm">हम साथ खड़े रहते हैं - क्लेम से लेकर सेटलमेंट तक</p>
+                            </div>
+                        </div>
+                        <div class="benefit-card rounded-2xl p-6 flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-neongreen/20 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="bell" class="w-6 h-6 text-neongreen"></i> 
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg mb-1">Renewal Reminder</h3>
+                                <p class="text-white/40 text-sm">कभी policy expire नहीं होगी - हम याद दिला देंगे</p>
+                            </div>
+                        </div>
+                        <div class="benefit-card rounded-2xl p-6 flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-cyan/20 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="zap" class="w-6 h-6 text-cyan"></i> 
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg mb-1">तुरंत सेवा</h3>
+                                <p class="text-white/40 text-sm">मिनटों में कोट और इश्यू - कोई इंतजार नहीं</p>
+                            </div>
+                        </div>
+                        <div class="benefit-card rounded-2xl p-6 flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-neongreen/20 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="users" class="w-6 h-6 text-neongreen"></i> 
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg mb-1">व्यक्तिगत सहायता</h3>
+                                <p class="text-white/40 text-sm">Direct agent assistance - आपका अपना एजेंट</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-r from-neongreen/10 to-cyan/10 border border-neongreen/30 rounded-2xl p-6 text-center">
+                        <p id="benefits-trust-line" class="text-lg font-semibold text-white">💚 हम सिर्फ पॉलिसी नहीं बेचते, आपकी सुरक्षा की जिम्मेदारी लेते हैं</p>
+                    </div>
+                </div>
+            </section><!-- COUNTDOWN TIMER SECTION -->
+            <section class="w-full py-12 md:py-16" style="background: linear-gradient(180deg, rgba(220,38,38,0.08) 0%, rgba(234,88,12,0.06) 50%, rgba(220,38,38,0.04) 100%);">
+                <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+                    <div class="bg-gradient-to-r from-red-900/30 to-orange-900/20 border-2 border-red-500/40 rounded-2xl p-8 sm:p-10">
+                        <!-- Main urgency text -->
+                        <p class="text-white/80 text-lg sm:text-xl font-semibold mb-8">⏳ गाड़ी के प्रीमियम रोज बदलते हैं, इसलिए आज ही अपनी inquiry बुक करें</p><!-- Timer display -->
+                        <div class="inline-block">
+                            <div id="timer-display" class="text-6xl sm:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-orange-400 to-red-400" style="letter-spacing: 0.1em; animation: pulse-timer 1s ease-in-out infinite;">
+                                15:00
+                            </div>
+                        </div><!-- Timer ended message (hidden initially) -->
+                        <div id="timer-ended" class="hidden">
+                            <p class="text-2xl sm:text-3xl font-bold text-red-300 mb-4">⛔ ऑफर समाप्त हो गया</p>
+                            <p class="text-white/70 text-lg">अभी भी मौका है, तुरंत संपर्क करें!</p>
+                        </div>
+                    </div>
+                </div>
+            </section><!-- FINAL CTA SECTION -->
+            <section class="w-full py-14 md:py-20" style="background: linear-gradient(180deg, rgba(10,14,39,0) 0%, rgba(0,229,255,0.04) 50%, rgba(10,14,39,0) 100%);">
+                <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+                    <div class="bg-slate-950/80 border border-cyan-400/20 rounded-3xl p-8 sm:p-12 backdrop-blur-xl shadow-cyan-500/10 shadow-2xl">
+                        <div class="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-neongreen to-cyan flex items-center justify-center mb-6">
+                            <i data-lucide="phone-forwarded" class="w-8 h-8 text-deepnavy"></i> 
+                        </div>
+                        <h2 id="final-cta-heading" class="text-2xl sm:text-3xl font-bold mb-4">अभी अपना फ्री कोट पाएं</h2>
+                        <p class="text-white/50 mb-8 max-w-md mx-auto">बस एक क्लिक दूर है आपकी सुरक्षित ड्राइविंग। अभी शुरू करें!</p><button id="final-cta-btn" onclick="document.getElementById('field-name').focus(); document.getElementById('leadForm').scrollIntoView({behavior:'smooth'})" class="bg-gradient-to-r from-neongreen to-emerald-500 text-deepnavy font-bold py-4 px-10 rounded-xl text-lg pulse-btn hover:scale-[1.02] active:scale-[0.98] transition-transform cursor-pointer"> अभी अप्लाई करें → </button>
+                    </div>
+                </div>
+            </section><!-- FOOTER -->
+            <section class="w-full py-12 border-t border-cyan/5">
+                <div class="max-w-5xl mx-auto px-4 space-y-8 text-sm text-white/60">
+
+                    <div id="privacy-policy">
+                        <h3 class="text-lg font-bold text-white mb-2">Privacy Policy</h3>
+                        <p>
+                            आपकी व्यक्तिगत जानकारी जैसे नाम, मोबाइल नंबर, शहर और अन्य विवरण
+                            केवल बीमा कोटेशन और ग्राहक सहायता हेतु उपयोग किए जाते हैं।
+                            हम आपकी जानकारी किसी अनधिकृत तृतीय पक्ष के साथ साझा नहीं करते।
+                        </p>
+                    </div>
+
+                    <div id="terms-conditions">
+                        <h3 class="text-lg font-bold text-white mb-2">Terms & Conditions</h3>
+                        <p>
+                            इस वेबसाइट पर दी गई जानकारी केवल बीमा कोटेशन और सहायता उद्देश्यों
+                            के लिए है। अंतिम प्रीमियम और पॉलिसी शर्तें बीमा कंपनी के नियमों
+                            के अनुसार बदल सकती हैं।
+                        </p>
+                    </div>
+
+                    <div id="contact-us">
+                        <h3 class="text-lg font-bold text-white mb-2">Contact Us</h3>
+                        <p>
+                            सहायता हेतु WhatsApp / Call करें:
+                        <span id="footer-contact">
+                            +91 7665548274
+                        </span>
+                        <!-- <p>
+                            Email: <span id="footer-email">
+    support@yourcrm.com
+</span> 
+                        </p> -->
+                    </div>
+
+                    <div id="disclaimer">
+                        <h3 class="text-lg font-bold text-white mb-2">Disclaimer</h3>
+                        <p>
+                            यह वेबसाइट केवल बीमा सलाह और लीड जनरेशन के उद्देश्य से है।
+                            अंतिम पॉलिसी जारी करना संबंधित बीमा कंपनी के नियमों और स्वीकृति
+                            पर निर्भर करेगा।
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <!-- <footer class="w-full border-t border-cyan/5 py-8">
+                <div class="max-w-7xl mx-auto px-4 text-center text-white/30 text-sm space-y-3">
+
+                    <div class="flex flex-wrap justify-center gap-4 text-cyan/70 text-sm">
+                        <a href="#privacy-policy" class="hover:text-cyan">Privacy Policy</a>
+                        <a href="#terms-conditions" class="hover:text-cyan">Terms & Conditions</a>
+                        <a href="#contact-us" class="hover:text-cyan">Contact Us</a>
+                        <a href="#disclaimer" class="hover:text-cyan">Disclaimer</a>
+                    </div>
+
+                    <span id="footer-brand">
+                        © 2026 Insurance Advisor. All rights reserved.
+                    </span>
+                </div>
+            </footer> -->
+            <footer class="huda">
+
+    <p>
+        Designed & Developed by 
+        <a class="n11" href="https://www.instagram.com/jagdish_hudda_99/" 
+           target="_blank" 
+           rel="noopener">
+           @Jagdish Huda
+        </a>
+    </p>
+
+    <!-- Popup Box -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <img src="img/j.JPG" class="profile-img" alt="Profile">
+
+            <h3 class="name-heading"> Jagdish Huda</h3>
+
+            <p class="info">
+                <strong>Instagram:</strong>
+                <a href="https://www.instagram.com/jagdish_hudda_99/"
+                   target="_blank"
+                   rel="noopener">
+                   @jagdish_hudda_99
+                </a>
+            </p>
+            <p class="info"><strong>Mobile:</strong> +91 7073841399</p>
+        </div>
+    </div>
+</footer>
+        </main>
+    </div>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Countdown Timer Logic
+        function initCountdownTimer() {
+            let timeRemaining = 15 * 60; // 15 minutes in seconds
+            const timerDisplay = document.getElementById('timer-display');
+            const timerEnded = document.getElementById('timer-ended');
+
+            function updateTimer() {
+                const minutes = Math.floor(timeRemaining / 60);
+                const seconds = timeRemaining % 60;
+                const timeString = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                timerDisplay.textContent = timeString;
+
+                if (timeRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    // Show ended message
+                    timerDisplay.parentElement.classList.add('hidden');
+                    timerEnded.classList.remove('hidden');
+                }
+
+                timeRemaining--;
+            }
+
+            updateTimer(); // Initial display
+            const timerInterval = setInterval(updateTimer, 1000);
+        }
+
+        // Start timer when page loads
+        document.addEventListener('DOMContentLoaded', initCountdownTimer);
+
+        // Default config
+        const defaultConfig = {
+            headline: '🚗 सस्ता और भरोसेमंद मोटर इंश्योरेंस',
+            subheadline: 'First Party और Third Party Insurance तुरंत पाएं',
+            urgency_text: '⚡ आज ही ऑफर का लाभ उठाएं',
+            form_title: 'फ्री कोट पाएं',
+            risk_title: 'अगर आपकी गाड़ी का इंश्योरेंस नहीं है तो क्या होगा?',
+            risk_emotional: '🔴 एक छोटी सी गलती आपको लाखों का नुकसान करा सकती है',
+            advisor_section_title: 'आपके विश्वसनीय इंश्योरेंस सलाहकार',
+            advisor_section_name: 'इंश्योरेंस सलाहकार: अणदा राम',
+            advisor_section_experience: '✔ 10+ वर्षों का अनुभव इंश्योरेंस क्षेत्र में',
+            advisor_section_location: 'राजस्थान, बाड़मेर\nथार हॉस्पिटल के पास, शिव नगर\nबाड़मेर - 344001',
+            advisor_section_description: 'हम आपके लिए सही पॉलिसी चुनने में मदद करते हैं और हर समय आपकी सहायता के लिए उपलब्ध रहते हैं।',
+            advisor_section_trust: 'आपका भरोसा ही हमारी सबसे बड़ी जिम्मेदारी है',
+            benefits_title: 'हमसे ही इंश्योरेंस क्यों लें?',
+            benefits_trust_line: '💚 हम सिर्फ पॉलिसी नहीं बेचते, आपकी सुरक्षा की जिम्मेदारी लेते हैं',
+            vehicles_title: 'हम किन-किन गाड़ियों का इंश्योरेंस करते हैं?',
+            vehicles_tagline: '🎯 हर प्रकार की गाड़ी के लिए सही पॉलिसी, सही कीमत पर',
+            final_cta_heading: 'अभी अपना फ्री कोट पाएं',
+            final_cta_button: 'अभी अप्लाई करें →',
+            background_color: '#060919',
+            surface_color: '#0a0e27',
+            text_color: '#ffffff',
+            primary_action_color: '#39ff14',
+            secondary_action_color: '#00e5ff',
+            font_family: 'Poppins',
+            font_size: 16
+        };
+
+
+
+        // Form logic
+        const form = document.getElementById('leadForm');
+        const errorDiv = document.getElementById('form-error');
+        const errorText = document.getElementById('form-error-text');
+        const toast = document.getElementById('success-toast');
+
+        function showError(msg) {
+            const errorDiv = document.getElementById('form-error');
+            const errorText = document.getElementById('form-error-text');
+
+            if (errorText) errorText.textContent = msg;
+            if (errorDiv) errorDiv.classList.remove('hidden');
+        }
+
+        function hideError() {
+            const errorDiv = document.getElementById('form-error');
+
+            if (errorDiv) errorDiv.classList.add('hidden');
+        }
+
+
+
+        // Phone input: numbers only
+        document.getElementById('field-phone').addEventListener('input', (e) => {
+            e.target.value = e.target.value.replace(/[^0-9]/g, '');
+        });
+    </script>
+    <script>
+        let pageLoadTime = Date.now();
+        let maxScrollDepth = 0;
+
+        window.addEventListener('scroll', function () {
+            let scrollPercent = Math.round(
+                ((window.scrollY + window.innerHeight) /
+                    document.body.scrollHeight) * 100
+            );
+
+            if (scrollPercent > maxScrollDepth) {
+                maxScrollDepth = scrollPercent;
+            }
+        });
+        function loadAdvisorProfile() {
+            const params = new URLSearchParams(window.location.search);
+            const aid = params.get("aid");
+
+            if (!aid) return;
+
+            fetch("/LeadSubmit.aspx/GetAgentProfile", {
+                method: "POST",
+                headers: {
+                    "Content-Type":
+                        "application/json; charset=utf-8"
+                },
+                body: JSON.stringify({
+                    customerId: aid
+                })
+            })
+                .then(response => response.json())
+                .then(res => {
+                    let x = res.d;
+
+                    if (!x) return;
+
+                    if (document.getElementById("advisorName"))
+                        document.getElementById("advisorName").innerText =
+                            x.name || "Advisor";
+
+                    if (document.getElementById("advisorLocation"))
+                        document.getElementById("advisorLocation").innerText =
+                            x.city || "";
+
+                    if (document.getElementById("advisorDescription"))
+                        document.getElementById("advisorDescription").innerText =
+                            x.description || "";
+
+                    if (document.getElementById("advisorTrust"))
+                        document.getElementById("advisorTrust").innerText =
+                            x.business || "";
+
+                    if (x.photo &&
+                        document.getElementById("advisorPhoto")) {
+                        document.getElementById("advisorPhoto").src =
+                            x.photo;
+                    }
+                    if (document.getElementById("nav-brand"))
+                        document.getElementById("nav-brand").innerText =
+                            x.business || x.name || "Insurance Advisor";
+
+                    if (document.getElementById("footer-brand"))
+                        document.getElementById("footer-brand").innerText =
+                            `© 2026 ${x.business || x.name || "Insurance Advisor"}. All rights reserved.`;
+
+                    if (document.getElementById("footer-contact"))
+                        document.getElementById("footer-contact").innerText =
+                            x.mobile || "";
+                    if (document.getElementById("footer-email"))
+                        document.getElementById("footer-email").innerText =
+                            x.email || "";
+
+                    document.title =
+                        x.business || x.name || "Insurance Landing Page";
+                })
+                .catch(err => {
+                    console.log(
+                        "Advisor profile load failed",
+                        err
+                    );
+                });
+        }
+        function getTimeSpent() {
+            return Math.floor((Date.now() - pageLoadTime) / 1000);
+        }
+
+        function getTrackingData() {
+            const params = new URLSearchParams(window.location.search);
+
+            const tracking = {
+                AgentID: params.get('aid') || '',
+                CampaignID: params.get('cid') || '',
+                UTMSource: params.get('utm_source') || '',
+                UTMCampaign: params.get('utm_campaign') || '',
+                GCLID: params.get('gclid') || '',
+                FBCLID: params.get('fbclid') || '',
+                Pixel: params.get('pixel') || '',
+                LandingPage: window.location.pathname
+            };
+
+            document.getElementById('hdnAgentID').value = tracking.AgentID;
+            document.getElementById('hdnCampaignID').value = tracking.CampaignID;
+            document.getElementById('hdnUTMSource').value = tracking.UTMSource;
+            document.getElementById('hdnUTMCampaign').value = tracking.UTMCampaign;
+            document.getElementById('hdnGCLID').value = tracking.GCLID;
+            document.getElementById('hdnFBCLID').value = tracking.FBCLID;
+            document.getElementById('hdnLandingPage').value = tracking.LandingPage;
+            document.getElementById('hdnPixel').value = tracking.Pixel;
+            return tracking;
+        }
+
+        function loadMetaPixel() {
+            const params = new URLSearchParams(window.location.search);
+            const pixelId = params.get('pixel');
+
+            if (!pixelId) {
+                console.warn("No pixel ID found");
+                return;
+            }
+
+            !function (f, b, e, v, n, t, s) {
+                if (f.fbq) return;
+
+                n = f.fbq = function () {
+                    if (n.callMethod) {
+                        n.callMethod.apply(n, arguments);
+                    } else {
+                        n.queue.push(arguments);
+                    }
+                };
+
+                if (!f._fbq) f._fbq = n;
+
+                n.push = n;
+                n.loaded = true;
+                n.version = '2.0';
+                n.queue = [];
+
+                t = b.createElement(e);
+                t.async = true;
+                t.src =
+                    'https://connect.facebook.net/en_US/fbevents.js';
+
+                s = b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t, s);
+
+            }(window, document, 'script');
+
+            setTimeout(function () {
+                if (typeof fbq === 'function') {
+                    fbq('init', pixelId);
+                    fbq('track', 'PageView');
+                    console.log("Meta Pixel Loaded:", pixelId);
+                }
+            }, 500);
+        }
+
+        
+
+        window.onload = function () {
+            getTrackingData();
+            loadMetaPixel();
+            loadAdvisorProfile();
+            const params = new URLSearchParams(window.location.search);
+            const aid = params.get("aid");
+
+            fetch("/LeadSubmit.aspx/CheckLicense", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ customerId: aid })
+            })
+                .then(res => res.json())
+                .then(res => {
+                    if (!res.d) {
+                        document.body.innerHTML = `
+    <div style="text-align:center; padding:100px;">
+        <h2>Service Unavailable</h2>
+        <p>This page is currently inactive.</p>
+    </div>`;
+                        return;
+                    }
+
+
+                });
+
+        };
+        function submitLeadForm() {
+            const name = document.getElementById("field-name").value.trim();
+            const phone = document.getElementById("field-phone").value.trim();
+            const city = document.getElementById("field-city").value.trim();
+            const type = document.getElementById("field-type").value;
+
+            if (!name) {
+                showError("कृपया नाम दर्ज करें");
+                return false;
+            }
+
+            if (!phone || phone.length !== 10) {
+                showError("कृपया सही मोबाइल नंबर दर्ज करें");
+                return false;
+            }
+
+            if (!city) {
+                showError("कृपया शहर दर्ज करें");
+                return false;
+            }
+
+            if (!type) {
+                showError("कृपया Insurance Type चुनें");
+                return false;
+            }
+
+            hideError();
+
+            const tracking = getTrackingData();
+
+            document.getElementById("hdnAgentID").value = tracking.AgentID;
+            document.getElementById("hdnCampaignID").value = tracking.CampaignID;
+            document.getElementById("hdnUTMSource").value = tracking.UTMSource;
+            document.getElementById("hdnUTMCampaign").value = tracking.UTMCampaign;
+            document.getElementById("hdnGCLID").value = tracking.GCLID;
+            document.getElementById("hdnFBCLID").value = tracking.FBCLID;
+            document.getElementById("hdnLandingPage").value = tracking.LandingPage;
+            document.getElementById("hdnPixel").value = tracking.Pixel;
+            let score = 0;
+
+            const timeSpent = getTimeSpent();
+            if (timeSpent >= 60) score += 30;
+            else if (timeSpent >= 20) score += 20;
+            else score += 10;
+
+            if (maxScrollDepth >= 80) score += 30;
+            else if (maxScrollDepth >= 50) score += 20;
+            else score += 10;
+
+            if (name.length >= 3) score += 10;
+            if (city.length >= 2) score += 10;
+            if (type) score += 20;
+
+            if (/^[6-9]\d{9}$/.test(phone)) score += 20;
+
+            score = Math.min(score, 100);
+
+            let intent = "Cold";
+            if (score >= 70) intent = "Hot";
+            else if (score >= 40) intent = "Warm";
+
+            // Assign
+            document.getElementById("hdnLeadScore").value = score;
+            document.getElementById("hdnIntentLevel").value = intent;
+            document.getElementById("hdnTimeSpent").value = getTimeSpent();
+            document.getElementById("hdnScrollDepth").value = maxScrollDepth;
+            
+            console.log("Submitting...");
+            console.log("TimeSpent:", getTimeSpent());
+            console.log("ScrollDepth:", maxScrollDepth);
+            
+
+            return true;
+        }
+        
+    </script>
+</body>
+</html>
